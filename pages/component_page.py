@@ -5,8 +5,8 @@ from utils.base_page import BasePage
 from utils.generate_random import GenerateRandom
 
 NEW_COMPONENT_BUTTON = '#react-tabs-3 button > div > div.Button_titleContainer__7vVZt'
-COMPONENT_NAME = '[placeholder="Select component name..."]'
-COMPONENT_ICON_DROPDOWN = '#componentIcon button > p'
+COMPONENT_NAME = '[placeholder="Type here..."]'
+COMPONENT_ICON_DROPDOWN = '[id="componentIcon"] [aria-label="toggle menu"]'
 SAVE_AND_CONTINUE_BUTTON = '[src="/static/media/rightArrow.0bf8736fac13ad5e760635de92711332.svg"]'
 
 TEXT_COMPONENT_ELEMENTS = '[data-tip="Text"]'
@@ -22,6 +22,7 @@ class ComponentPage:
 
     def select_random_component_icon(self):
         base_page = BasePage(self.driver)
+        time.sleep(2)
         component_icon = self.driver.find_element(By.CSS_SELECTOR, COMPONENT_ICON_DROPDOWN).click()
         time.sleep(2)
         base_page.select_random_element_from_specific_list("#componentIcon img")

@@ -1,15 +1,13 @@
 import time
-
 from selenium import webdriver
-
 from pages.builder_page import BuilderPage
 from pages.component_page import ComponentPage
 from pages.login_page import LoginPage
 from pages.nav_bar import NavBar
 
-
 def test_workflow():
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(
+        executable_path='D:/alvanda/browsers/chromedriver.exe')
     login_page = LoginPage(driver)
     nav_bar = NavBar(driver)
     builder_page = BuilderPage(driver)
@@ -40,7 +38,7 @@ def test_workflow():
     time.sleep(2)
 
     #create component
-    for _ in range(50):
+    for _ in range(10):
         component_page.create_component()
 
     time.sleep(10)
