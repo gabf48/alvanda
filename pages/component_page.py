@@ -52,3 +52,17 @@ class ComponentPage:
         self.select_random_component_icon()
         self.select_text()
         self.press_save_and_continue_button()
+
+    def check_name_component_list(self, expected_list):
+        # Find all elements matching the CSS selector
+        elements = self.driver.find_elements(By.CSS_SELECTOR,'#blueprint-card > div > div.blueprint-card-top-container > p')
+
+        # Extract text from each element and store it in a list
+        text_list = []
+        for element in elements:
+            text_list.append(element.text)
+
+        # Print the list of text
+        print(text_list)
+
+        assert text_list == expected_list, "Text list does not match the expected list"

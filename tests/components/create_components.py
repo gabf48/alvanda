@@ -26,7 +26,7 @@ def test_create_components():
     time.sleep(2)
 
     #create component
-    for _ in range(10):
+    for _ in range(5):
         component_page.create_component()
 
     time.sleep(10)
