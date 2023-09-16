@@ -7,7 +7,7 @@ from pages.nav_bar import NavBar
 
 def test_workflow():
     driver = webdriver.Chrome(
-        executable_path='D:/alvanda/browsers/chromedriver.exe')
+        executable_path='C:/projects python/alvanda/browsers/chromedriver.exe')
     login_page = LoginPage(driver)
     nav_bar = NavBar(driver)
     builder_page = BuilderPage(driver)

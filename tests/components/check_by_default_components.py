@@ -8,21 +8,21 @@ from utils.lists import by_default_component_name_list
 
 def test_component_by_default():
     driver = webdriver.Chrome(
-        executable_path='D:/alvanda/browsers/chromedriver.exe')
+        executable_path='C:/projects python/alvanda/browsers/chromedriver.exe')
     login_page = LoginPage(driver)
     nav_bar = NavBar(driver)
     builder_page = BuilderPage(driver)
     component_page = ComponentPage(driver)
 
-    #login
+    # login
     login_page.login('gabriel.filip+autoTest@wesrom.com','Parola1993!')
     time.sleep(5)
 
-    #open builder
+    # open builder
     nav_bar.pressBuilder()
     time.sleep(2)
 
-    #open component section
+    # open component section
     builder_page.selectComponentSection()
     time.sleep(5)
     component_page.check_name_component_list(by_default_component_name_list)
