@@ -9,7 +9,7 @@ from pages.procedure_page import ProcedurePage
 
 def test_create_procedures():
     driver = webdriver.Chrome(
-        executable_path='D:/alvanda/browsers/chromedriver.exe')
+        executable_path='C:/projects python/browsers/chromedriver.exe')
     login_page = LoginPage(driver)
     nav_bar = NavBar(driver)
     builder_page = BuilderPage(driver)
