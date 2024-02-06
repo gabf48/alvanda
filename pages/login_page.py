@@ -16,10 +16,11 @@ class LoginPage:
     def login(self, email, password):
         self.driver.maximize_window()
         self.driver.get('https://front-end-dev.alvanda.com/')
+        time.sleep(5)
         type_email = self.driver.find_element(By.CSS_SELECTOR, EMAIL_INPUT).send_keys(email)
         type_password = self.driver.find_element(By.CSS_SELECTOR, PASSWORD_INPUT).send_keys(password)
         press_sign_in_button = self.driver.find_element(By.CSS_SELECTOR, BUTTON_SIGN_IN).click()
-        time.sleep(3)
+        time.sleep(5)
         try:
             self.driver.find_element(By.CSS_SELECTOR, BUTTON_CONTINUE).click()
         except Exception as e:
