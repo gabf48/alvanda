@@ -29,4 +29,4 @@ def test_create_components(browser):
     for _ in range(5):
         component_page.create_component()
 
-    time.sleep(10)
+    browser.quit()

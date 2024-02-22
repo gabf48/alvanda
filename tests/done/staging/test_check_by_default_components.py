@@ -37,3 +37,4 @@ def test_check_by_default_components(browser):
     assert "Expected Title - Builder Page" in browser.title
     assert builder_page.is_component_section_selected()
     assert component_page.is_component_list_valid(by_default_component_name_list)
+

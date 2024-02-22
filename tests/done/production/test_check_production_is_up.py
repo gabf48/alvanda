@@ -22,3 +22,4 @@ def test_check_production_is_up(browser):
     # If the assertion passes, this line will be executed
     print("The size of the list is equal to 5.")
 
+    browser.quit()

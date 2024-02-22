@@ -24,3 +24,4 @@ def test_create_more_procedures(browser):
     for _ in range(2):
         procedure_page.create_procedure()
 
+    browser.quit()
