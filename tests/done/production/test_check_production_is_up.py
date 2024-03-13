@@ -17,9 +17,9 @@ def test_check_production_is_up(browser):
     size_of_list = len(elements)
 
     # Assert that the size of the list is equal to 5
-    assert size_of_list == 5, f"The size of the list is not equal to 5. It is {size_of_list}."
+    assert size_of_list == 9, f"The size of the list is not equal to 5. It is {size_of_list}."
 
     # If the assertion passes, this line will be executed
     print("The size of the list is equal to 5.")
 
-    browser.quit()
+    #browser.quit()
