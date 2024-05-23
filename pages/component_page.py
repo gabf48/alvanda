@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from utils.base_page import BasePage
 from utils.generate_random import GenerateRandom
 
-NEW_COMPONENT_BUTTON = '#react-tabs-3 button > div > div.Button_titleContainer__7vVZt'
+NEW_COMPONENT_BUTTON = 'div.ComponentsPanel_controlsContainer__\+KC5N button > div > div.Button_titleContainer__7vVZt'
 COMPONENT_NAME = '[placeholder="Type here..."]'
 COMPONENT_ICON_DROPDOWN = '[id="componentIcon"] [aria-label="toggle menu"]'
 SAVE_AND_CONTINUE_BUTTON = '[src="/static/media/rightArrow.0bf8736fac13ad5e760635de92711332.svg"]'
@@ -46,12 +46,16 @@ class ComponentPage:
 
     def create_component(self):
         self.driver.find_element(By.CSS_SELECTOR, NEW_COMPONENT_BUTTON).click()
-        time.sleep(2)
+        time.sleep(3)
         self.type_random_component_name()
-        time.sleep(2)
+        time.sleep(3)
         self.select_random_component_icon()
+        time.sleep(3)
         self.select_text()
+        time.sleep(3)
         self.press_save_and_continue_button()
+        time.sleep(8)
+
 
     def check_name_component_list(self, expected_list):
         # Find all elements matching the CSS selector
