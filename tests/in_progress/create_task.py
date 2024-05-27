@@ -25,4 +25,6 @@ def test_create_task(browser):
     nav_bar.pressTasks()
     time.sleep(2)
     task_page.press_create_new_task()
+    time.sleep(2)
+    task_page.complete_task_modal()
     time.sleep(5000000)

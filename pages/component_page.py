@@ -23,9 +23,7 @@ class ComponentPage:
     def select_random_component_icon(self):
         base_page = BasePage(self.driver)
         time.sleep(2)
-        component_icon = self.driver.find_element(By.CSS_SELECTOR, COMPONENT_ICON_DROPDOWN).click()
-        time.sleep(2)
-        base_page.select_random_element_from_specific_list("#componentIcon img")
+        base_page.select_random_element_from_specific_list(COMPONENT_ICON_DROPDOWN,"#componentIcon img")
 
     def type_random_name_for_component_elements(self):
         generate_random = GenerateRandom(self.driver)
