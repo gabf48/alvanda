@@ -15,7 +15,7 @@ def test_create_more_procedures(browser):
     nav_bar = NavBar(browser)
     procedure_page = ProcedurePage(browser)
 
-    login_page.login('gabriel.filip+master@wesrom.com', 'Parola1993!')
+    login_page.login('gabriel.filip+nnn@wesrom.com', 'Parola1993!')
     time.sleep(10)
 
     nav_bar.pressBuilder()
