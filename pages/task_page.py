@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 
-from utils import generate_random
 from utils.base_page import BasePage
 from utils.generate_random import GenerateRandom
 
@@ -12,6 +11,7 @@ CREATE_AND_START_BUTTON = 'body > reach-portal > div:nth-child(2) button:nth-chi
 EMAIL_INPUT = '[name="email"]'
 NUMBER_INPUT = '[inputmode="numeric"]'
 TEXT_INPUT = '[name="text"]'
+COMPLETE_TASK_BUTTON = 'div:nth-child(2) > div > div:nth-child(4) > button > div'
 class TaskPage:
 
     def __init__(self, driver):
@@ -52,3 +52,16 @@ class TaskPage:
 
     def type_text(self, text):
         self.driver.find_element(By.CSS_SELECTOR, TEXT_INPUT).send_keys(text)
+
+    def press_complete_task_button(self):
+        self.driver.find_element(By.CSS_SELECTOR, COMPLETE_TASK_BUTTON).click()
+
+    def check_modal_text(self):
+        title = self.driver.find_element(By.CSS_SELECTOR, "reach-portal > div:nth-child(2) > div > div > div > div > p:nth-child(2)").text
+        assert title == 'Task Completed!'
+        content1 = self.driver.find_element(By.CSS_SELECTOR, "reach-portal > div:nth-child(2) > div > div > div > div > p:nth-child(3)").text
+        assert content1 == 'The completed Task and updated Components will appear in their respective sections.'
+        content2 = self.driver.find_element(By.CSS_SELECTOR, "reach-portal > div:nth-child(2) > div > div > div > div > p:nth-child(4)").text
+        assert content2 == 'Well done!'
+        button_text = self.driver.find_element(By.CSS_SELECTOR, "reach-portal > div:nth-child(2) > div > div > div > div > button > div").text
+        assert button_text == 'Close'

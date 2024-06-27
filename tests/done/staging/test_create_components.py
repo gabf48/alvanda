@@ -17,7 +17,7 @@ def test_create_components(browser):
     builder_page = BuilderPage(browser)
     component_page = ComponentPage(browser)
 
-    login_page.login('gabriel.filip+master@wesrom.com', 'Parola1993!')
+    login_page.login('gabriel.filip+nnn@wesrom.com', 'Parola1993!')
     time.sleep(5)
 
     nav_bar.pressBuilder()
