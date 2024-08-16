@@ -5,10 +5,16 @@ from pages.login_page import LoginPage
 from pages.nav_bar import NavBar
 from pages.procedure_page import ProcedurePage
 
-@pytest.fixture(scope="module")
+from selenium.webdriver.chrome.options import Options
+@pytest.fixture(scope="function")
 def browser():
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--disable-search-engine-choice-screen")
+    driver = webdriver.Chrome(options=chrome_options)
     yield driver
+    driver.quit()
+
+@pytest.mark.repeat(1)
 
 def test_create_more_procedures(browser):
     login_page = LoginPage(browser)

@@ -5,11 +5,16 @@ from pages.builder_page import BuilderPage
 from pages.component_page import ComponentPage
 from pages.login_page import LoginPage
 from pages.nav_bar import NavBar
-
-@pytest.fixture(scope="module")
+from selenium.webdriver.chrome.options import Options
+@pytest.fixture(scope="function")
 def browser():
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument("--disable-search-engine-choice-screen")
+    driver = webdriver.Chrome(options=chrome_options)
     yield driver
+    driver.quit()
+
+@pytest.mark.repeat(1)
 
 def test_create_components(browser):
     login_page = LoginPage(browser)
