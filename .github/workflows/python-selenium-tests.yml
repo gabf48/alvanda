@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4  # Actualizează la cea mai recentă versiune
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v5  # Actualizează la cea mai recentă versiune
+      uses: actions/setup-python@v5
       with:
         python-version: '3.9'
 
@@ -35,4 +35,8 @@ jobs:
       env:
         DISPLAY: :99.0
 
-
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: report.html
