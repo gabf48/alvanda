@@ -31,9 +31,11 @@ jobs:
     - name: Run tests
       run: |
         export DISPLAY=:99.0
+        export PYTHONPATH=$(pwd)
         pytest --maxfail=1 --disable-warnings --html=report.html
       env:
         DISPLAY: :99.0
+
 
     - name: Upload Test Report
       uses: actions/upload-artifact@v3
