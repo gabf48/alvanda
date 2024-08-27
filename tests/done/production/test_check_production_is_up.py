@@ -1,17 +1,31 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+
+
 @pytest.fixture(scope="function")
 def browser():
     chrome_options = Options()
-    chrome_options.add_argument("--disable-search-engine-choice-screen")
-    driver = webdriver.Chrome(options=chrome_options)
+    chrome_options.add_argument("--headless")  # Rulează în modul headless
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-software-rasterizer")
+    chrome_options.add_argument("--remote-debugging-port=9222")
+
+    # Specifică locația de executabil pentru chromium-browser
+    chrome_options.binary_location = "/usr/bin/chromium-browser"
+
+    # Specifică serviciul pentru chromedriver
+    service = Service('/usr/lib/chromium-browser/chromedriver')
+
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     yield driver
     driver.quit()
 
-@pytest.mark.repeat(1)
 
+@pytest.mark.repeat(1)
 def test_check_production_is_up(browser):
     browser.get('https://alvanda.com/')
 
